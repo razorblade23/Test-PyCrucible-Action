@@ -1,0 +1,38 @@
+name: Build test with PyCrucible action
+
+on:
+  push:
+
+permissions:
+  contents: write
+
+jobs:
+  run_test_app:
+    name: Smoke Test PyCrucible action
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # ----- Linux -----
+          - runner: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            bin_ext: ""
+          # ----- Windows -----
+          - runner: windows-latest
+            target: x86_64-pc-windows-msvc
+            bin_ext: ".exe"
+          # ----- macOS -----
+          - runner: macos-13
+            target: x86_64-apple-darwin
+            bin_ext: ""
+
+    steps:
+      - name: Use GitHub action
+        uses: razorblade23/pycrucible-action@v1
+        with:
+            entry: .
+            output: dist/cowsay
+
+      - name: Smoke-test generated artifact
+        run: ./dist/cowsay${{ matrix.bin_ext }}
