@@ -31,7 +31,7 @@ jobs:
       - name: Use GitHub action
         uses: razorblade23/pycrucible-action@v1.0.5
         with:
-            entry: /home/runner/work/Test-PyCrucible-Action/Test-PyCrucible-Action
+            entry: /home/runner/work/Test-PyCrucible-Action
             output: dist/cowsay
 
       - name: Smoke-test generated artifact
