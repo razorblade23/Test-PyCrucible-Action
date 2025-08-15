@@ -41,7 +41,7 @@ jobs:
 
       - name: Smoke-test generated artifact (Linux and MacOS)
         if: runner.os != 'Windows'
-        run: ./cowsay${{ matrix.bin_ext }}
+        run: ./cowsay
 
       - name: Smoke-test generated artifact (Windows)
-        run: .\cowsay${{ matrix.bin_ext }}
+        run: cowsay.exe
