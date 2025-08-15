@@ -42,6 +42,11 @@ jobs:
       - name: Smoke-test generated artifact (Linux and MacOS)
         if: runner.os != 'Windows'
         run: ./cowsay
-
+        
+      - name: Add dist to PATH
+        if: runner.os == 'Windows'
+        run: echo "${{ github.workspace }}" >> $env:GITHUB_PATH
+        
       - name: Smoke-test generated artifact (Windows)
+        if: runner.os == 'Windows'
         run: cowsay.exe
