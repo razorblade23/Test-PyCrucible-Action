@@ -28,6 +28,10 @@ jobs:
             bin_ext: ""
 
     steps:
+      - name: Print out the current dir
+        run: pwd
+      - name: Print out LS
+        run: ls
       - name: Use GitHub action
         uses: razorblade23/pycrucible-action@v1.0.5
         with:
