@@ -28,6 +28,7 @@ jobs:
             bin_ext: ""
 
     steps:
+      - uses: actions/checkout@v4
       - name: Print out the current dir
         run: pwd
       - name: Print out LS
@@ -35,7 +36,7 @@ jobs:
       - name: Use GitHub action
         uses: razorblade23/pycrucible-action@v1.0.5
         with:
-            entry: /home/runner/work/Test-PyCrucible-Action
+            entry: .
             output: dist/cowsay
 
       - name: Smoke-test generated artifact
