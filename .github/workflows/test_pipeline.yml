@@ -29,15 +29,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Print out the current dir
-        run: pwd
-      - name: Print out LS
-        run: ls
-      - name: Use GitHub action
+        
+      - name: Use GitHub action (Linux and MacOS)
+        if: runner.os != 'Windows'
         uses: razorblade23/pycrucible-action@v1.0.5
         with:
             entry: .
             output: ./cowsay
+
+      - name: Use GitHub action (Windows)
+        if: runner.os == 'Windows'
+        uses: razorblade23/pycrucible-action@v1.0.5
+        with:
+            entry: .
+            output: .\cowsay.exe
 
       - name: Smoke-test generated artifact (Linux and MacOS)
         if: runner.os != 'Windows'
