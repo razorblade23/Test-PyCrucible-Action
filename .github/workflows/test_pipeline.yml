@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Use GitHub action
-        uses: razorblade23/pycrucible-action@v1.0.2
+        uses: razorblade23/pycrucible-action@v1.0.3
         with:
             entry: .
             output: dist/cowsay
