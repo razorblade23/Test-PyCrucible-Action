@@ -37,7 +37,7 @@ jobs:
         uses: razorblade23/pycrucible-action@v1.0.5
         with:
             entry: .
-            output: dist/cowsay
+            output: ./cowsay
 
       - name: Smoke-test generated artifact
-        run: ./dist/cowsay${{ matrix.bin_ext }}
+        run: ./cowsay${{ matrix.bin_ext }}
