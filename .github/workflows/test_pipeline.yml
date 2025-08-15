@@ -32,14 +32,14 @@ jobs:
         
       - name: Use GitHub action (Linux and MacOS)
         if: runner.os != 'Windows'
-        uses: razorblade23/pycrucible-action@v1.0.5
+        uses: razorblade23/pycrucible-action@v2
         with:
             entry: .
             output: ./cowsay
 
       - name: Use GitHub action (Windows)
         if: runner.os == 'Windows'
-        uses: razorblade23/pycrucible-action@v1.0.5
+        uses: razorblade23/pycrucible-action@v2
         with:
             entry: .
             output: .\cowsay.exe
